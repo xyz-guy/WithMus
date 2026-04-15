@@ -196,16 +196,17 @@
         <!-- Step 1: Welcome -->
         <section id="step1" class="step active flex-col items-center text-center glass-card p-10">
             <div class="text-6xl mb-6 animate-bounce">❤️</div>
-            <h1 class="text-4xl font-bold mb-4">Hello Sweetie ji</h1>
-            <p class="text-gray-300 mb-8 leading-relaxed">I built something for you, just to bring a smile to your face on your special day.</p>
+            <h1 class="text-4xl font-bold mb-4">Hello Madam ji</h1>
+            <p class="text-gray-300 mb-8 leading-relaxed">I made something for you on your special day.</p>
             <button onclick="nextStep(2)" class="btn-primary">Ready to start??😁</button>
         </section>
 
         <!-- Step 2: Message -->
         <section id="step2" class="step flex-col items-center text-center glass-card p-10">
             <div class="text-6xl mb-6">🎉</div>
-            <h1 class="text-4xl font-bold mb-4">Happyyy Birthdayyy🥳!</h1>
-            <p class="text-gray-300 mb-8 leading-relaxed">Another year of you making my world brighter. Your existence is a precious gift, and I'm so lucky to witness it☺️.</p>
+            <h1 class="text-4xl font-bold mb-4">Happyyy Birthdayyy my oldieee 😁!!!</h1>
+            <p class="text-gray-300 mb-8 leading-relaxed"> Smile while you still have teeth… You’re getting older, but somehow even more irresistible 😏 Lucky me, I get to love you forever 😆Stay mine always… and don’t worry, I’ll grow old with you 💕
+.</p>
             <button onclick="nextStep(3)" class="btn-primary">There's more...</button>
         </section>
 
@@ -226,7 +227,7 @@
                     <span class="block text-xl"> Your Anger 😤</span>
                 </div>
                 <div class="bento-item">
-                    <span class="block text-xl"> Calling Me Dhana 🙂‍↔️"</span>
+                    <span class="block text-xl"> Calling Me Dhana 🙂‍↔️</span>
                 </div>
                 <div class="bento-item">
                     <span class="block text-xl"> Your Non-Stop Stories🗣️</span>
@@ -243,18 +244,33 @@
 
         <!-- Step 4: Memory -->
         <section id="step4" class="step flex-col items-center text-center glass-card p-10">
-            <h2 class="text-3xl font-bold mb-6">That One Time...</h2>
-            <div class="polaroid-wrapper mb-8" id="polaroidContainer">
-                <div class="polaroid" id="polaroid">
-                    <img src="Birthd.jpeg" alt="Memory">
-                    <div class="caption"> 22.12.2025 
-                    <div class="caption"> My Unforgetable Memory.</div>
-                </div>
-            </div>
-            <p class="text-gray-300 mb-8 leading-relaxed italic"> Want to live those moments again and again..</p>
-            <button onclick="nextStep(5)" class="btn-primary">One last thing...</button>
-        </section>
+    
+    <h2 class="text-3xl font-bold mb-6">That One Time...</h2>
 
+    <!-- Hidden Photo Container -->
+    <div id="hiddenMemory" class="hidden flex-col items-center">
+
+        <div class="polaroid-wrapper mb-8" id="polaroidContainer">
+            <div class="polaroid" id="polaroid">
+                <img src="Birthd.jpeg" alt="Memory">
+                <div class="caption">22.12.2025</div>
+                <div class="caption">My Unforgettable Memory.</div>
+            </div>
+        </div>
+
+        <p class="text-gray-300 mb-8 leading-relaxed italic">
+            Want to live those moments again and again..
+        </p>
+
+        <button onclick="nextStep(5)" class="btn-primary">One last thing...</button>
+    </div>
+
+    <!-- Reveal Button -->
+    <button id="revealBtn" onclick="revealMemory()" class="btn-primary">
+        Tap to Reveal ❤️
+    </button>
+
+</section>
         <!-- Step 5: Finale -->
         <section id="step5" class="step flex-col items-center text-center glass-card p-10">
             <div class="text-6xl mb-6">🎂</div>
@@ -324,7 +340,23 @@ And no matter what happens… I’m always right here, yours ..💕
             }
             camera.position.z = 30;
         }
+        
+        function revealMemory() {
+    const hidden = document.getElementById("hiddenMemory");
+    const btn = document.getElementById("revealBtn");
 
+    // hide button
+    btn.style.display = "none";
+
+    // show memory
+    hidden.classList.remove("hidden");
+
+    // smooth animation
+    gsap.fromTo(hidden, 
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 1 }
+    );
+}
         function animateThree() {
             requestAnimationFrame(animateThree);
             hearts.forEach(heart => {
