@@ -69,7 +69,15 @@
             z-index: -1;
             pointer-events: none;
         }
-
+        
+         .glow-text {
+    color: #ff4da6;
+    text-shadow: 
+        0 0 5px #ff4da6,
+        0 0 10px #ff4da6,
+        0 0 20px #ff4da6,
+        0 0 40px #ff1493;
+}
         /* Glassmorphism */
         .glass-card {
             background: rgba(12, 10, 9, 0.6);
@@ -285,7 +293,8 @@ And no matter what happens… I’m always right here, yours Dhana💕
                 <span class="text-pink-400 font-bold">Om Namay Shivay📿🛐</span>
             </p>
             <div id="finalMessage" class="hidden text-3xl font-bold text-pink-400 mb-8">
-                Happy Birthdayyyy, Sai Swarii!! ❤️
+            <div>Happyy Birthdayyyy,</div>
+            <div class="mt-2 glow-text">Sai Swarii!! ❤️</div>
             </div>
             <button id="celebrateBtn" onclick="startFinale()" class="btn-primary">Celebrate!!</button>
         </section>
